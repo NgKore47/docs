@@ -56,4 +56,4 @@ services:
 
         sed -i 's/2980B9/45818e/g' _build/html/_static/css/theme.css
 
-        echo "http://docs.ngkore.com" > _build/html/CNAME
+        echo "docs.ngkore.com" > _build/html/CNAME
