@@ -1,0 +1,59 @@
+version: "3.9"
+services:
+  build:
+    image: python
+    working_dir: /var/opt/build/
+    volumes:
+      - "./build/:/var/opt/build/"
+      - "./static/:/var/opt/static/"
+      - "./docs/:/var/opt/docs/"
+    command:
+      - bash
+      - -c
+      - |
+        apt update
+        apt install -y python3-sphinx python3-sphinx-rtd-theme
+
+        sphinx-quickstart \
+          --no-sep \
+          --project "ngKore Documentation" \
+          --author "ngKore" \
+          --release "0.1.0" \
+          --language "en" \
+          --ext-autodoc \
+          --ext-doctest \
+          --ext-intersphinx \
+          --ext-todo \
+          --ext-coverage \
+          --ext-imgmath \
+          --ext-mathjax \
+          --ext-ifconfig \
+          --ext-viewcode \
+          --ext-githubpages
+
+        sed -i 's/alabaster/sphinx_rtd_theme/' conf.py
+
+        cat << EOF >> conf.py
+
+        html_context = {
+          'display_github': True,
+          'github_user': 'NgKore47',
+          'github_repo': 'docs',
+          'github_version': 'master/docs/'
+        }
+
+        html_logo = "_static/ng.jpeg"
+
+        html_theme_options = {
+          'navigation_depth': 10
+        }
+        EOF
+
+        cp -r ../docs/* .
+        cp -r ../static/* _static/
+
+        make html
+
+        sed -i 's/2980B9/45818e/g' _build/html/_static/css/theme.css
+
+        echo "http://docs.ngkore.com" > _build/html/CNAME
