@@ -5,3 +5,4 @@ Kernel Bypass Mechanisms
    :maxdepth: 10
 
    afxdp/index
+   dpdk/index
