@@ -14,21 +14,21 @@ Hardware Requirements
 
 To implement DPDK, there are several hardware-level requirements and configurations necessary to ensure the proper functioning and high-performance packet processing. These are:
 
-1. **Compatible NIC(*Network Interface Card*)**: DPDK requires a `[compatible NIC] <https://core.dpdk.org/supported/#nics>`_ that supports the required features for efficient packet processing. 
+1. **Compatible NIC(Network Interface Card)** -  DPDK requires a `[compatible NIC] <https://core.dpdk.org/supported/#nics>`_ that supports the required features for efficient packet processing. 
 
-2. **Detaching NIC from the kernel driver**: Before using a NIC with DPDK, the NIC must be detached from the associated kernel network driver. This is necessary to allow the DPDK userspace application to have direct control over the NIC without interference from the kernel.
+2. **Detaching NIC from the kernel driver** -  Before using a NIC with DPDK, the NIC must be detached from the associated kernel network driver. This is necessary to allow the DPDK userspace application to have direct control over the NIC without interference from the kernel.
 
-3. **Attaching NIC to the appropriate DPDK driver**: After detaching the NIC from the kernel driver, the NIC needs to be bound with the appropriate DPDK-compatible driver, such as vfio-pci, igb_uio, or uio_pci_generic. These drivers enable direct access to the NIC from the DPDK userspace application and reduce the overheads associated with context switching, interrupt handling, and memory management.
+3. **Attaching NIC to the appropriate DPDK driver** -  After detaching the NIC from the kernel driver, the NIC needs to be bound with the appropriate DPDK-compatible driver, such as vfio-pci, igb_uio, or uio_pci_generic. These drivers enable direct access to the NIC from the DPDK userspace application and reduce the overheads associated with context switching, interrupt handling, and memory management.
 
-4. **CPU and NUMA (*Non-Uniform Memory Access*) considerations**: To avoid contention with other system processes, it is best practice to assign dedicated CPU cores to the DPDK application. This can be achieved using CPU pinning or isolation. Also, the memory allocated for the DPDK application should be from the same NUMA node where the CPU cores and NICs are located, this will minimize the latency and maximize the performance.
+4. **CPU and NUMA(Non-Uniform Memory Access) considerations** -  To avoid contention with other system processes, it is best practice to assign dedicated CPU cores to the DPDK application. This can be achieved using CPU pinning or isolation. Also, the memory allocated for the DPDK application should be from the same NUMA node where the CPU cores and NICs are located, this will minimize the latency and maximize the performance.
 
-5. **Hugepages**: A portion of memory should be reserved as hugepages during boot for DPDK to use for memory allocation. This helps to use larger page sizes, reducing the overheads associated with managing memory using smaller page sizes. Using a large continuous memory area with hugepages, it also reduces data fragmentation and other memory management operations such as TLB, lookups, etc.
+5. **Hugepages** -  A portion of memory should be reserved as hugepages during boot for DPDK to use for memory allocation. This helps to use larger page sizes, reducing the overheads associated with managing memory using smaller page sizes. Using a large continuous memory area with hugepages, it also reduces data fragmentation and other memory management operations such as TLB, lookups, etc.
 
 .. image:: photos/hugepages.png
   :width: 800
   :alt: Alternative text
 
-6. **IOMMU(*Input-Output Memory Management Unit*) support**: For systems that use VFIO-PCI drivers, IOMMU support in the BIOS and kernel is needed. IOMMU provides memory isolation and protection for devices, allowing secure direct access to the NIC hardware from the userspace application.
+6. **IOMMU(Input-Output Memory Management Unit) support** -  For systems that use VFIO-PCI drivers, IOMMU support in the BIOS and kernel is needed. IOMMU provides memory isolation and protection for devices, allowing secure direct access to the NIC hardware from the userspace application.
 IOMMU provides a short path for devices to get access only to a well-scoped physical device memory area that corresponds to a DPDK application.
 
 Components of DPDK Abstraction Layer

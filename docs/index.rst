@@ -7,6 +7,5 @@ ngKore Documentation!
    :caption: General
    :name: sec-general
 
-   labs/index
    blogs/index
    help

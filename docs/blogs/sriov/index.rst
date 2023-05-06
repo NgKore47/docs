@@ -1,7 +1,7 @@
-Architecture
+SR-IOV
 ****************
 
 .. toctree::
    :maxdepth: 10
 
-   architecture
+   sriov

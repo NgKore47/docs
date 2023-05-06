@@ -6,3 +6,4 @@ Kernel Bypass Mechanisms
 
    afxdp/index
    dpdk/index
+   sriov/index
