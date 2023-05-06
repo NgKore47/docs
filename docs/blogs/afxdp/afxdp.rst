@@ -12,34 +12,34 @@ Hardware Requirements
 
 To implement XDP and AF_XDP effectively, certain hardware-level features and capabilities should be present in your system:
 
-1. **NIC compatibility**: Ensure the NIC supports the XDP and AF_XDP features.
+1. **NIC compatibility** -  Ensure the NIC supports the XDP and AF_XDP features.
 
-2. **Driver support**: XDP support depends on the network driver. Currently, it is supported by Broadcom's bnxt, Cavium's thunderx, Intel's ixgbe, ixgbevf, and i40e, Mellanox's mlx4 and mlx5, Netronome's nfp, and Qlogic's qede drivers.
+2. **Driver support** -  XDP support depends on the network driver. Currently, it is supported by Broadcom's bnxt, Cavium's thunderx, Intel's ixgbe, ixgbevf, and i40e, Mellanox's mlx4 and mlx5, Netronome's nfp, and Qlogic's qede drivers.
 
-3. **Hardware queue support**: XDP requires the NIC to support multiple hardware queues. The number of queues required depends on the number of CPU cores available for packet processing.
+3. **Hardware queue support** -  XDP requires the NIC to support multiple hardware queues. The number of queues required depends on the number of CPU cores available for packet processing.
 
 Components of XDP System
 ==================
 
 The Major components of the XDP system are:
 
-1. **XDP Driver hook**: It is the main entry point where the eBPF programs are implemented at the network driver level. The main focus is to execute the XDP program at the earliest possible time after a packet is received from the NIC hardware.
+1. **XDP Driver hook** -  It is the main entry point where the eBPF programs are implemented at the network driver level. The main focus is to execute the XDP program at the earliest possible time after a packet is received from the NIC hardware.
 
 .. image:: photos/xdp.png
   :width: 800
   :alt: Alternative text
 
-2. **eBPF VM**: It is a lightweight, register-based VM responsible for executing the bytecode of the XDP program. The eBPF VM also performs JIT(*Just-In-Time*) compilation to increase performance by converting the bytecode to native machine code for the specific CPU architecture.
+2. **eBPF VM** -  It is a lightweight, register-based VM responsible for executing the bytecode of the XDP program. The eBPF VM also performs JIT(*Just-In-Time*) compilation to increase performance by converting the bytecode to native machine code for the specific CPU architecture.
 
 .. image:: photos/ebpf-vm.png
   :width: 800
   :alt: Alternative text
 
-3. **BPF Maps**: These are key-value stores that serve as the primary communication channel between the eBPF programs running at different locations in the kernel and also between the kernel and the userspace applications. BPF maps can be used for various purposes, such as storing configuration data, packet statistics, connection tracking, and flow state information. 
+3. **BPF Maps** -  These are key-value stores that serve as the primary communication channel between the eBPF programs running at different locations in the kernel and also between the kernel and the userspace applications. BPF maps can be used for various purposes, such as storing configuration data, packet statistics, connection tracking, and flow state information. 
 
-4. **eBPF Verifier**: The eBPF verifier is a critical component that statically verifies eBPF programs before they are loaded into the kernel and checks whether the program bytecode is safe or not. It checks the program for safety and correctness, ensuring that it doesn't have any loops, doesn't access out-of-bounds memory, and adheres to other safety constraints.
+4. **eBPF Verifier** -  The eBPF verifier is a critical component that statically verifies eBPF programs before they are loaded into the kernel and checks whether the program bytecode is safe or not. It checks the program for safety and correctness, ensuring that it doesn't have any loops, doesn't access out-of-bounds memory, and adheres to other safety constraints.
 
-5. **eBPF Loader**: The eBPF loader is a user-space tool, such as 'iproute2', that loads the eBPF program into the kernel.
+5. **eBPF Loader** -  The eBPF loader is a user-space tool, such as 'iproute2', that loads the eBPF program into the kernel.
 
 Packet Flow
 =======
