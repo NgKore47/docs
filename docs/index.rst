@@ -8,4 +8,5 @@ ngKore Documentation!
    :name: sec-general
 
    labs/index
+   blogs/index
    help
