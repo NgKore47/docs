@@ -1,7 +1,7 @@
-Architecture
+AF_XDP
 ****************
 
 .. toctree::
    :maxdepth: 10
 
-   architecture
+   afxdp
