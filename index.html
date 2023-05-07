@@ -35,7 +35,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Magma 4G Virtual Labs" href="labs/index.html" /> 
+    <link rel="next" title="Kernel Bypass Mechanisms" href="blogs/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -84,7 +84,7 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="labs/index.html">Magma 4G Virtual Labs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blogs/index.html">Kernel Bypass Mechanisms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="help.html">Help</a></li>
 </ul>
 
@@ -159,36 +159,41 @@
 <h1>ngKore Documentation!<a class="headerlink" href="#ngkore-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="labs/index.html">Magma 4G Virtual Labs</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="labs/installation/index.html">Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="labs/installation/orc8r-installation.html">Installation of Orchestrator with one IP instead of five</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/orc8r-installation.html#install-dependant-collections">Install Dependant Collections</a></li>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/orc8r-installation.html#setup-ansible-ubuntu-20-04-lts-setup">Setup Ansible (Ubuntu 20.04 LTS Setup):</a></li>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/orc8r-installation.html#copy-your-public-ssh-key-to-the-host">Copy your public SSH key to the host:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/orc8r-installation.html#create-a-new-user">Create a new user:</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="labs/installation/agw-installation.html">Installation of Access Gateway</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/agw-installation.html#install-access-gateway-on-ubuntu-bare-metal">Install Access Gateway on Ubuntu (Bare Metal)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/agw-installation.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/agw-installation.html#deployment">Deployment</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="labs/installation/agw-installation.html#create-boot-usb-stick-and-install-ubuntu-on-your-agw-host">1. Create boot USB stick and install Ubuntu on your AGW host</a></li>
-<li class="toctree-l5"><a class="reference internal" href="labs/installation/agw-installation.html#deploy-magma-on-the-agw-host">2. Deploy magma on the AGW_HOST</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="labs/installation/agw-installation.html#run-agw-installation">Run AGW installation</a></li>
-<li class="toctree-l6"><a class="reference internal" href="labs/installation/agw-installation.html#post-install-check">Post Install Check</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blogs/index.html">Kernel Bypass Mechanisms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="blogs/afxdp/index.html">AF_XDP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="blogs/afxdp/afxdp.html">AF_XDP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="blogs/afxdp/afxdp.html#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="blogs/afxdp/afxdp.html#components-of-xdp-system">Components of XDP System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="blogs/afxdp/afxdp.html#packet-flow">Packet Flow</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="blogs/afxdp/afxdp.html#from-nic-to-the-application"><strong>From NIC to the Application</strong></a></li>
+<li class="toctree-l5"><a class="reference internal" href="blogs/afxdp/afxdp.html#from-application-to-the-nic"><strong>From Application to the NIC</strong></a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="labs/installation/srsRAN-installation.html">Installation of srsRAN</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/srsRAN-installation.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/srsRAN-installation.html#preparing-magma-for-ue-traffic-in-your-nms">Preparing Magma for UE traffic in Your NMS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/srsRAN-installation.html#add-your-ssh-public-key-to-the-srsran-vm-for-ansible">Add Your SSH Public Key to the srsRAN VM for Ansible</a></li>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/srsRAN-installation.html#update-hosts-bind-ip-mme-address-in-hosts-yml-file">Update hosts, bind_ip, mme address in hosts.yml file</a></li>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/srsRAN-installation.html#deploy-srsran">Deploy srsRAN</a></li>
-<li class="toctree-l4"><a class="reference internal" href="labs/installation/srsRAN-installation.html#verify-setup">Verify setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="blogs/dpdk/index.html">DPDK</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="blogs/dpdk/dpdk.html">DPDK</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="blogs/dpdk/dpdk.html#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="blogs/dpdk/dpdk.html#components-of-dpdk-abstraction-layer">Components of DPDK Abstraction Layer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="blogs/dpdk/dpdk.html#packet-flow">Packet Flow</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="blogs/dpdk/dpdk.html#from-nic-to-the-application"><strong>From NIC to the Application</strong></a></li>
+<li class="toctree-l5"><a class="reference internal" href="blogs/dpdk/dpdk.html#from-application-to-the-nic"><strong>From Application to the NIC</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="blogs/sriov/index.html">SR-IOV</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="blogs/sriov/sriov.html">SR-IOV</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="blogs/sriov/sriov.html#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="blogs/sriov/sriov.html#packet-flow">Packet Flow</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="blogs/sriov/sriov.html#from-nic-to-the-vm-container"><strong>From NIC to the VM/Container</strong></a></li>
+<li class="toctree-l5"><a class="reference internal" href="blogs/sriov/sriov.html#from-vm-container-to-the-nic"><strong>From VM/Container to the NIC</strong></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -206,7 +211,7 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="labs/index.html" class="btn btn-neutral float-right" title="Magma 4G Virtual Labs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="blogs/index.html" class="btn btn-neutral float-right" title="Kernel Bypass Mechanisms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

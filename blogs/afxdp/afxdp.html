@@ -1,0 +1,284 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>AF_XDP &mdash; ngKore Documentation 0.1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="DPDK" href="../dpdk/index.html" />
+    <link rel="prev" title="AF_XDP" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> ngKore Documentation
+          
+
+          
+            
+            <img src="../../_static/ng.jpeg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Kernel Bypass Mechanisms</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">AF_XDP</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AF_XDP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#components-of-xdp-system">Components of XDP System</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#packet-flow">Packet Flow</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#from-nic-to-the-application"><strong>From NIC to the Application</strong></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#from-application-to-the-nic"><strong>From Application to the NIC</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../dpdk/index.html">DPDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sriov/index.html">SR-IOV</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">Help</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ngKore Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Kernel Bypass Mechanisms</a> &raquo;</li>
+        
+          <li><a href="index.html">AF_XDP</a> &raquo;</li>
+        
+      <li>AF_XDP</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/NgKore47/docs/blob/master/docs/blogs/afxdp/afxdp.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="af-xdp">
+<h1>AF_XDP<a class="headerlink" href="#af-xdp" title="Permalink to this headline">¶</a></h1>
+<p>AF_XDP(<em>Address Family - eXpress Data Path</em>) socket is a high-performance mechanism for bypassing the traditional kernel network stack, enabling userspace applications to process packets directly. It uses eBPF programs at the XDP hook and shared userspace memory(<em>UMEM</em>) to efficiently transfer packets between the NIC and userspace, reducing latency and improving throughput for packet processing tasks.</p>
+<a class="reference internal image-reference" href="../../_images/afxdp-flow.png"><img alt="Alternative text" src="../../_images/afxdp-flow.png" style="width: 800px;" /></a>
+<div class="section" id="hardware-requirements">
+<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this headline">¶</a></h2>
+<p>To implement XDP and AF_XDP effectively, certain hardware-level features and capabilities should be present in your system:</p>
+<ol class="arabic simple">
+<li><p><strong>NIC compatibility</strong> -  Ensure the NIC supports the XDP and AF_XDP features.</p></li>
+<li><p><strong>Driver support</strong> -  XDP support depends on the network driver. Currently, it is supported by Broadcom’s bnxt, Cavium’s thunderx, Intel’s ixgbe, ixgbevf, and i40e, Mellanox’s mlx4 and mlx5, Netronome’s nfp, and Qlogic’s qede drivers.</p></li>
+<li><p><strong>Hardware queue support</strong> -  XDP requires the NIC to support multiple hardware queues. The number of queues required depends on the number of CPU cores available for packet processing.</p></li>
+</ol>
+</div>
+<div class="section" id="components-of-xdp-system">
+<h2>Components of XDP System<a class="headerlink" href="#components-of-xdp-system" title="Permalink to this headline">¶</a></h2>
+<p>The Major components of the XDP system are:</p>
+<ol class="arabic simple">
+<li><p><strong>XDP Driver hook</strong> -  It is the main entry point where the eBPF programs are implemented at the network driver level. The main focus is to execute the XDP program at the earliest possible time after a packet is received from the NIC hardware.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/xdp.png"><img alt="Alternative text" src="../../_images/xdp.png" style="width: 800px;" /></a>
+<ol class="arabic simple" start="2">
+<li><p><strong>eBPF VM</strong> -  It is a lightweight, register-based VM responsible for executing the bytecode of the XDP program. The eBPF VM also performs JIT(<em>Just-In-Time</em>) compilation to increase performance by converting the bytecode to native machine code for the specific CPU architecture.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/ebpf-vm.png"><img alt="Alternative text" src="../../_images/ebpf-vm.png" style="width: 800px;" /></a>
+<ol class="arabic simple" start="3">
+<li><p><strong>BPF Maps</strong> -  These are key-value stores that serve as the primary communication channel between the eBPF programs running at different locations in the kernel and also between the kernel and the userspace applications. BPF maps can be used for various purposes, such as storing configuration data, packet statistics, connection tracking, and flow state information.</p></li>
+<li><p><strong>eBPF Verifier</strong> -  The eBPF verifier is a critical component that statically verifies eBPF programs before they are loaded into the kernel and checks whether the program bytecode is safe or not. It checks the program for safety and correctness, ensuring that it doesn’t have any loops, doesn’t access out-of-bounds memory, and adheres to other safety constraints.</p></li>
+<li><p><strong>eBPF Loader</strong> -  The eBPF loader is a user-space tool, such as ‘iproute2’, that loads the eBPF program into the kernel.</p></li>
+</ol>
+</div>
+<div class="section" id="packet-flow">
+<h2>Packet Flow<a class="headerlink" href="#packet-flow" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../../_images/afxdp.png"><img alt="Alternative text" src="../../_images/afxdp.png" style="width: 800px;" /></a>
+<div class="section" id="from-nic-to-the-application">
+<h3><strong>From NIC to the Application</strong><a class="headerlink" href="#from-nic-to-the-application" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Packets arriving at the NIC are temporarily stored in its internal memory(<em>implemented using SRAM, or dedicated DRAM</em>).</p></li>
+<li><p>NIC performs normal packet processing (<em>e.g., error checking, basic filtering</em>), creates packet descriptors (<em>packet size + buffer address</em>), and places them in the RX ring buffer.</p></li>
+<li><p>The packet descriptors are passed onto the XDP hook of the NIC driver, where the eBPF program processes the packets fetched from the NIC internal memory and takes decisions based on the eBPF program. It decides whether to pass the packet to an AF_XDP socket or continue through the kernel network stack</p></li>
+<li><p>If the eBPF program decides to pass the packet to an AF_XDP socket, the packet data is DMA-mapped from the NIC’s internal memory into a region of user memory (<em>UMEM</em>), shared between the kernel and user space.</p></li>
+<li><p>First, XDP reads the descriptors of the empty memory chunks in the UMEM region from the Fill Queue then DMA-mapped the data packets from the NIC’s internal memory to the provided memory chunks and then stores the filled memory chunks’ descriptors into the RX queue.</p></li>
+<li><p>The application retrieves the descriptors of the memory chunks from the RX Queue and processes the packets.</p></li>
+</ol>
+</div>
+<div class="section" id="from-application-to-the-nic">
+<h3><strong>From Application to the NIC</strong><a class="headerlink" href="#from-application-to-the-nic" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><p>The application prepares packets for transmission, storing them in designated memory chunks within the UMEM (<em>Userspace MEMory</em>) region, and places their corresponding descriptors in the TX (<em>transmit</em>) queue associated with the AF_XDP socket.</p></li>
+<li><p>XDP retrieves the descriptors from the TX queue and transfers the data packets from the respective memory chunks to the NIC’s internal memory using DMA (<em>Direct Memory Access</em>).</p></li>
+<li><p>Subsequently, the descriptors for the now-empty memory chunks are added to the UMEM’s Completion queue.</p></li>
+<li><p>Upon possessing the packet descriptors, XDP determines the appropriate destination for the packets. It forwards the descriptors to the NIC’s TX ring, from which the packets are transmitted to their intended destinations.</p></li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../dpdk/index.html" class="btn btn-neutral float-right" title="DPDK" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="AF_XDP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, ngKore.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
