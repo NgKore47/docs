@@ -8,4 +8,5 @@ ngKore Documentation!
    :name: sec-general
 
    blogs/index
+   operator/index
    help
