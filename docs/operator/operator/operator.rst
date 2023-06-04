@@ -19,7 +19,7 @@ ngKore Operator
 
 7. **Modifying the Custom Resource** - The 'spec' field in the CR corresponds to the `values.yaml` file in the Helm chart. When a CR is created or modified, the Operator deploys or updates the Helm chart using the configuration values from the CR.
 
-8. **Helm Releases** - Each time a CR is modified, a new release of the Helm chart is created with the updated configuration values. This release is a running instance of the chart and is stored in the cluster. This does not change the original Helm chart but instead creates a new instance (release) of the Helm chart with the updated configuration.
+8. **Helm Releases** - Each time a CR is modified, a new release of the Helm chart is created with the updated configuration values. This release is a running instance of the chart and is stored in the cluster. This does not change the original Helm chart but instead creates a new instance (*release*) of the Helm chart with the updated configuration.
 
 Operator
 ==================
@@ -28,9 +28,9 @@ Kubernetes Operators are software extensions to Kubernetes that make use of cust
 
 Operators follow the principles of the Kubernetes design, namely the Controller concept, which allows you to extend Kubernetes's functionality without modifying the code of Kubernetes itself.
 
-**Custom Resource Definitions (CRDs)** - Operators introduce new types of resources into Kubernetes, and these are defined using CRDs. These new resources are application-specific and are understandable by the Operator; they contain the information that the Operator needs to manage the application.
+Operators introduce new types of resources into Kubernetes, and these are defined using CRDs. These new resources are application-specific and are understandable by the Operator; they contain the information that the Operator needs to manage the application.
 
-**Controller** - The Operator includes a Controller which runs in a loop monitoring the state of your application. It compares the desired state (*defined by the custom resources*) with the actual state in the Kubernetes cluster. If the actual state does not match the desired state, the controller will execute the necessary steps to correct it.
+The Operator includes a **Controller** which runs in a loop monitoring the state of your application. It compares the desired state (*defined by the custom resources*) with the actual state in the Kubernetes cluster. If the actual state does not match the desired state, the controller will execute the necessary steps to correct it.
 
 Benefits of Operator
 ==================
@@ -47,7 +47,7 @@ Benefits of Operator
 
 6. **Integration** - Operators can integrate with other parts of the Kubernetes ecosystem, like service meshes, storage providers, security systems, etc.
 
-Use Cases
+Use of Operator
 ==================
 
 1. **Automated NF Deployment** - With a 5G Operator, you can automate the deployment of various NFs such as UPF, AMF, SMF, AUSF, NRF, UDM, etc. This makes the deployment process more efficient, less error-prone, and more scalable.
@@ -67,3 +67,33 @@ Use Cases
 8. **Service Assurance** - Operators can provide real-time monitoring and diagnostics of 5G NFs, allowing for proactive maintenance and fault detection.
 
 By taking advantage of Operators, telecommunication providers can simplify and automate many of the complex tasks involved in managing 5G NFs. This leads to increased operational efficiency, reduced operational costs, and improved service reliability.
+
+CRD
+==================
+
+It stands for Custom Resource Definition. Kubernetes comes with several pre-defined resources like Pods, Services, and Deployments that we can create and manage. However, sometimes we might need to add new types of resources that are specific to our application or infrastructure. That's where CRDs come in.
+
+A CRD allows us to create our own, custom resources that behave like native Kubernetes resources. Once a CRD is created, users can create and manage instances of this new resource using `kubectl`, just like they would for built-in resources.
+CRDs are powerful because they let us extend the Kubernetes API to fit our needs, while still benefiting from the Kubernetes API's infrastructure, like its RESTful design, CLI and UI integration, and lifecycle management.
+
+CR
+==================
+
+A CR(*Custom Resource*) is an extension of the Kubernetes API that allows to store and retrieve structured data. It's a way to introduce our own API objects into our Kubernetes cluster to suit our application's specific needs.
+
+When we create a  CRD(*Custom Resource Definition*), we create a new kind of resource in our Kubernetes cluster. This new resource behaves like any standard resource in Kubernetes (*like Pods or Services*), meaning we can use `kubectl` to create, view, modify, and delete instances of our custom resource.
+
+Importance of CRD and CR
+==================
+
+CRDs and CRs in Kubernetes can play a pivotal role in the deployment and management of 5G networks. 
+
+1. **Network Functions Virtualization (NFV)**: 5G networks heavily rely on NFV, which involves running NFs as software on standard hardware. Kubernetes is an excellent platform for running these VNFs. CRDs can be used to define new types of resources for different VNFs, and CRs can then be created as instances of these new resource types. This allows for the easy deployment, scaling, and management of NFs, which is critical in a 5G context.
+
+2. **Service Meshes and Traffic Management**: Service meshes can be used to manage traffic between VNFs, providing features like load balancing, traffic routing, and security. These service meshes often use CRDs to define new types of resources for managing these features, and CRs can then be created to implement specific traffic management rules. This is particularly important in 5G networks, which need to handle a high volume of traffic and ensure that it's routed efficiently.
+
+3. **Custom Scheduling and Resource Allocation**: Different VNFs may have different resource requirements, and may need to be scheduled on specific nodes to meet these requirements. CRDs can be used to define new types of resources that specify these scheduling requirements, and CRs can then be created to specify the requirements for each VNF. This is crucial in 5G networks, which need to ensure that resources are allocated efficiently to handle the high data rates and low latencies that 5G promises.
+
+4. **Network Slicing**: One of the key features of 5G is network slicing, which allows for the creation of multiple virtual networks that operate on the same physical infrastructure. CRDs can be used to define new types of resources for these network slices, and CRs can then be created for each slice in our network. This is important in 5G networks, which need to support a wide range of different services, each with its own requirements.
+
+In summary, CRDs and CRs provide the flexibility and extensibility needed to manage the complex and diverse needs of 5G networks. They allow us to define and manage custom resources that represent the various components and features of a 5G network, extending the functionality of the Kubernetes API to better suit the specific needs of 5G.
