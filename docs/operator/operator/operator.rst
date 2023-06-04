@@ -28,7 +28,7 @@ Kubernetes Operators are software extensions to Kubernetes that make use of cust
 
 Operators follow the principles of the Kubernetes design, namely the Controller concept, which allows you to extend Kubernetes's functionality without modifying the code of Kubernetes itself.
 
-Operators introduce new types of resources into Kubernetes, and these are defined using CRDs. These new resources are application-specific and are understandable by the Operator; they contain the information that the Operator needs to manage the application.
+Operators introduce new types of resources into Kubernetes, and these are defined using **CRDs**  . These new resources are application-specific and are understandable by the Operator; they contain the information that the Operator needs to manage the application.
 
 The Operator includes a **Controller** which runs in a loop monitoring the state of your application. It compares the desired state (*defined by the custom resources*) with the actual state in the Kubernetes cluster. If the actual state does not match the desired state, the controller will execute the necessary steps to correct it.
 
@@ -76,12 +76,20 @@ It stands for Custom Resource Definition. Kubernetes comes with several pre-defi
 A CRD allows us to create our own, custom resources that behave like native Kubernetes resources. Once a CRD is created, users can create and manage instances of this new resource using `kubectl`, just like they would for built-in resources.
 CRDs are powerful because they let us extend the Kubernetes API to fit our needs, while still benefiting from the Kubernetes API's infrastructure, like its RESTful design, CLI and UI integration, and lifecycle management.
 
+.. image:: photos/crd.png
+  :width: 800
+  :alt: Alternative text
+
 CR
 ==================
 
 A CR(*Custom Resource*) is an extension of the Kubernetes API that allows to store and retrieve structured data. It's a way to introduce our own API objects into our Kubernetes cluster to suit our application's specific needs.
 
 When we create a  CRD(*Custom Resource Definition*), we create a new kind of resource in our Kubernetes cluster. This new resource behaves like any standard resource in Kubernetes (*like Pods or Services*), meaning we can use `kubectl` to create, view, modify, and delete instances of our custom resource.
+
+.. image:: photos/cr.png
+  :width: 800
+  :alt: Alternative text
 
 Importance of CRD and CR
 ==================
