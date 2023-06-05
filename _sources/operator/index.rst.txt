@@ -1,7 +1,7 @@
-Operator
+5G Core Operator
 ******************
 
 .. toctree::
    :maxdepth: 10
 
-   operator/index
+   ngkoreOperator/index
