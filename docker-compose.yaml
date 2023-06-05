@@ -42,7 +42,7 @@ services:
           'github_version': 'master/docs/'
         }
 
-        html_logo = "_static/ng.jpeg"
+        html_logo = "_static/ng.png"
 
         html_theme_options = {
           'navigation_depth': 10
