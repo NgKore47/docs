@@ -7,6 +7,10 @@ ngKore Operator
 
 1. **Creating the API and Controller** - We first create a new CRD(*Custom Resource Definition*) API and a new Controller. This is done using the Operator SDK. We provide a Helm chart path that the Operator will manage. This Helm chart, essentially, is the blueprint for deploying the application we want to manage.
 
+.. image:: photos/crdTerminal.png
+  :width: 800
+  :alt: Alternative text
+
 2. **Fetching the Helm Chart** - The Operator SDK fetches this Helm chart from the repository during the API creation. The Helm chart is then stored locally in the Operator project.
 
 3. **Building the Docker Image** - Once the API and Controller are set up, we build the ngKore Operator Docker image and then pushed to the Dockerhub registry so it can be accessed and pulled into a Kubernetes cluster.
@@ -18,6 +22,10 @@ ngKore Operator
 6. **Reconciliation Loop** - The Operator's controller constantly watches the ngkore custom resource for changes. If it detects a change, it performs the necessary actions to make the cluster reflect those changes. This is called the reconciliation loop.
 
 7. **Modifying the Custom Resource** - The 'spec' field in the CR corresponds to the `values.yaml` file in the Helm chart. When a CR is created or modified, the Operator deploys or updates the Helm chart using the configuration values from the CR.
+
+.. image:: photos/pods.png
+  :width: 800
+  :alt: Alternative text
 
 8. **Helm Releases** - Each time a CR is modified, a new release of the Helm chart is created with the updated configuration values. This release is a running instance of the chart and is stored in the cluster. This does not change the original Helm chart but instead creates a new instance (*release*) of the Helm chart with the updated configuration.
 
