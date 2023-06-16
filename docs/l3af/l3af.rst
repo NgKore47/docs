@@ -79,3 +79,5 @@ About Us!
 ==================
 
 NgKore is a research  & academic based community dedicated to exploring innovative solutions to complex challenges in 5G/6G technology: ngKore has been tirelessly exploring innovative solutions to the complex challenges in the field of 5G Core, O-RAN, User Plane Scaling, Packet Acceleration, eBPF, and cloud technologies.
+
+**Written By**: `Shankar <https://github.com/evershalik>`_, Mentee @ `LFN(L3AF on Windows) <https://wiki.lfnetworking.org/display/LN/LFN+Mentorship+Program+for+L3AF+on+Windows>`_
