@@ -9,4 +9,5 @@ ngKore Documentation!
 
    blogs/index
    operator/index
+   l3af/index
    help

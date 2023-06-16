@@ -1,89 +1,46 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>DPDK &mdash; ngKore Documentation 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   
-
-  
-  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-
-    
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="SR-IOV" href="../sriov/index.html" />
     <link rel="prev" title="DPDK" href="index.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="../../index.html" class="icon icon-home"> ngKore Documentation
           
-
-          
-            
-            <img src="../../_static/ng.png" class="logo" alt="Logo"/>
-          
+          <a href="../../index.html" class="icon icon-home">
+            ngKore Documentation
+              <img src="../../_static/ng.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Kernel Bypass Mechanisms</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../afxdp/index.html">AF_XDP</a></li>
@@ -104,87 +61,43 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../operator/index.html">5G Core Operator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../l3af/index.html">L3AF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../help.html">Help</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">ngKore Documentation</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="../index.html">Kernel Bypass Mechanisms</a> &raquo;</li>
-        
-          <li><a href="index.html">DPDK</a> &raquo;</li>
-        
-      <li>DPDK</li>
-    
-    
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Kernel Bypass Mechanisms</a></li>
+          <li class="breadcrumb-item"><a href="index.html">DPDK</a></li>
+      <li class="breadcrumb-item active">DPDK</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
-            
               <a href="https://github.com/NgKore47/docs/blob/master/docs/blogs/dpdk/dpdk.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="dpdk">
-<h1>DPDK<a class="headerlink" href="#dpdk" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="dpdk">
+<h1>DPDK<a class="headerlink" href="#dpdk" title="Permalink to this heading"></a></h1>
 <p>DPDK(<em>Data Plane Development Kit</em>) is a toolkit or a set of libraries and PMD drivers that help us to attend the high-performance packet processing at the application level by bypassing the traditional kernel network stack and directly interacting with the NIC hardware using the userspace driver, which helps achieve low latency and high throughput performance.</p>
 <a class="reference internal image-reference" href="../../_images/library.png"><img alt="Alternative text" src="../../_images/library.png" style="width: 800px;" /></a>
 <p>However, in scenarios where specific packets need network stack processing, it is crucial to implement a user space network stack to handle those requirements efficiently.</p>
-<div class="section" id="hardware-requirements">
-<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this headline">¶</a></h2>
+<section id="hardware-requirements">
+<h2>Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permalink to this heading"></a></h2>
 <p>To implement DPDK, there are several hardware-level requirements and configurations necessary to ensure the proper functioning and high-performance packet processing. These are:</p>
 <ol class="arabic simple">
 <li><p><strong>Compatible NIC(Network Interface Card)</strong> -  DPDK requires a <a class="reference external" href="https://core.dpdk.org/supported/#nics">[compatible NIC]</a> that supports the required features for efficient packet processing.</p></li>
@@ -196,9 +109,9 @@
 <a class="reference internal image-reference" href="../../_images/hugepages.png"><img alt="Alternative text" src="../../_images/hugepages.png" style="width: 800px;" /></a>
 <p>6. <strong>IOMMU(Input-Output Memory Management Unit) support</strong> -  For systems that use VFIO-PCI drivers, IOMMU support in the BIOS and kernel is needed. IOMMU provides memory isolation and protection for devices, allowing secure direct access to the NIC hardware from the userspace application.
 IOMMU provides a short path for devices to get access only to a well-scoped physical device memory area that corresponds to a DPDK application.</p>
-</div>
-<div class="section" id="components-of-dpdk-abstraction-layer">
-<h2>Components of DPDK Abstraction Layer<a class="headerlink" href="#components-of-dpdk-abstraction-layer" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="components-of-dpdk-abstraction-layer">
+<h2>Components of DPDK Abstraction Layer<a class="headerlink" href="#components-of-dpdk-abstraction-layer" title="Permalink to this heading"></a></h2>
 <p>In addition to the PMD driver, DPDK comprises essential libraries that enable high-performance packet processing. Most importantly, the core library provides abstractions for efficient packet handling. Key components include the Environment Abstraction Layer (<em>EAL</em>), Memory Buffer (<em>MBUF</em>), Ring Buffer (<em>RING</em>), Memory Pool (<em>MEMPOOL</em>), and Timer libraries.</p>
 <a class="reference internal image-reference" href="../../_images/AL.png"><img alt="Alternative text" src="../../_images/AL.png" style="width: 800px;" /></a>
 <ol class="arabic simple">
@@ -207,12 +120,12 @@ IOMMU provides a short path for devices to get access only to a well-scoped phys
 <li><p><strong>RING</strong> - RING is used for implementing receive (<em>RX</em>) and transmit (<em>TX</em>) ring buffers, which are crucial for managing packet descriptors and ensuring smooth packet flow between the NIC and the DPDK application.</p></li>
 <li><p><strong>MEMPOOL</strong> - This is the pre-allocated, fixed-size memory pool region inside the hugepages. It is used for allocating MBUFs and other objects that require consistent and fast memory access.</p></li>
 </ol>
-</div>
-<div class="section" id="packet-flow">
-<h2>Packet Flow<a class="headerlink" href="#packet-flow" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="packet-flow">
+<h2>Packet Flow<a class="headerlink" href="#packet-flow" title="Permalink to this heading"></a></h2>
 <a class="reference internal image-reference" href="../../_images/dpdk-flow.png"><img alt="Alternative text" src="../../_images/dpdk-flow.png" style="width: 800px;" /></a>
-<div class="section" id="from-nic-to-the-application">
-<h3><strong>From NIC to the Application</strong><a class="headerlink" href="#from-nic-to-the-application" title="Permalink to this headline">¶</a></h3>
+<section id="from-nic-to-the-application">
+<h3><strong>From NIC to the Application</strong><a class="headerlink" href="#from-nic-to-the-application" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>Packets arriving at the NIC are temporarily stored in its internal memory(<em>implemented using SRAM, or dedicated DRAM</em>).</p></li>
 <li><p>NIC processes the packet(<em>e.g., error checking, basic filtering</em>), creates packet descriptors(<em>packet size + buffer address</em>), and placed them in the RX ring buffer.</p></li>
@@ -233,9 +146,9 @@ IOMMU provides a short path for devices to get access only to a well-scoped phys
 <li><p>The pThreads are typically used in multi-core systems, where each pThread is pinned to a dedicated CPU core and is responsible for polling one or more DPDK NIC queues for incoming packets. The pThreads continuously poll the RX queues for new packets and process them when they are received.</p></li>
 <li><p>pthreads poll the data packets from the mbuf region of the mempool pointed by the packet descriptors in the RX ring of the DPDK abstraction layer, process them and send them to the application.</p></li>
 </ol>
-</div>
-<div class="section" id="from-application-to-the-nic">
-<h3><strong>From Application to the NIC</strong><a class="headerlink" href="#from-application-to-the-nic" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="from-application-to-the-nic">
+<h3><strong>From Application to the NIC</strong><a class="headerlink" href="#from-application-to-the-nic" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p>The application prepares the packet for transmission, storing it in a mbuf allocated from the DPDK memory pool, typically configured using hugepages.</p></li>
 <li><p>The PMD driver running on a dedicated CPU core retrieves the packet data from the mbuf and creates a descriptor containing metadata such as packet size, and buffer address.</p></li>
@@ -251,56 +164,39 @@ IOMMU provides a short path for devices to get access only to a well-scoped phys
 <li><p>The NIC performs any necessary processing tasks, such as adding checksums or VLAN tags, before transmitting the packet.</p></li>
 <li><p>Finally, the NIC transmits the packet data through the appropriate network interface.</p></li>
 </ol>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../sriov/index.html" class="btn btn-neutral float-right" title="SR-IOV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="DPDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sriov/index.html" class="btn btn-neutral float-right" title="SR-IOV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2023, ngKore.
-
-    </p>
+    <p>&#169; Copyright 2023, ngKore.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

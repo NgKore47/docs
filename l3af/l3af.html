@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>L3AF Integration with 5G-UPF &mdash; ngKore Documentation 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Help" href="../help.html" />
+    <link rel="prev" title="L3AF" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ngKore Documentation
+              <img src="../_static/ng.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../blogs/index.html">Kernel Bypass Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../operator/index.html">5G Core Operator</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">L3AF</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">L3AF Integration with 5G-UPF</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#l3af-architecture">L3AF Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#g-upf">5G UPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">L3AF Integration with 5G UPF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#about-us">About Us!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../help.html">Help</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ngKore Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">L3AF</a></li>
+      <li class="breadcrumb-item active">L3AF Integration with 5G-UPF</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NgKore47/docs/blob/master/docs/l3af/l3af.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="l3af-integration-with-5g-upf">
+<h1>L3AF Integration with 5G-UPF<a class="headerlink" href="#l3af-integration-with-5g-upf" title="Permalink to this heading"></a></h1>
+<p>5G, the fifth generation of wireless technology, promises to revolutionize the way we connect and communicate. One crucial component of the 5G infrastructure is the User Plane Function (<em>UPF</em>), responsible for handling data traffic efficiently and ensuring high throughput. As the demand for faster and more reliable connectivity grows, optimizing the performance of the UPF becomes paramount.</p>
+<p>Enter L3AF, an orchestrator for eBPF (<em>extended Berkeley Packet Filter</em>) programs, developed under the Linux Foundation. L3AF offers a powerful solution to enhance the efficiency and throughput of the UPF in 5G networks. By integrating L3AF with the 5G-UPF, we can unlock a new level of performance and unleash the true potential of 5G.</p>
+<p>In this blog post, we will delve into the exciting world of L3AF integration with 5G-UPF and explore how it can revolutionize the way we experience 5G connectivity. We will discuss the implementation aspects of this integration, shedding light on the incredible possibilities it offers for increasing efficiency and throughput in the UPF. So, let’s dive in and discover the transformative power of L3AF in the 5G ecosystem.</p>
+<section id="l3af-architecture">
+<h2>L3AF Architecture<a class="headerlink" href="#l3af-architecture" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="../_images/l3af-arch.png"><img alt="Alternative text" src="../_images/l3af-arch.png" style="width: 800px;" /></a>
+<ol class="arabic simple">
+<li><p><strong>User API Call</strong>: The process starts when a user sends an API call containing configuration data for the deployment of eBPF Kernel Functions (<em>KFs</em>) on the kernel, specifically at XDP and TC hooks.</p></li>
+<li><p><strong>Policy Formation</strong>: The configuration data from the API call is transformed into specific policies, which are then stored in a database for future use.</p></li>
+<li><p><strong>Data Retrieval by L3AFD</strong>: L3AFD, leveraging a key-value (<em>KV</em>) store, quickly retrieves the stored configuration data from the database.</p></li>
+<li><p><strong>eBPF Program Download</strong>: L3AFD downloads pre-built eBPF programs (<em>KFs</em>) from a user-configured repository (<em>eBPF Package Repository</em>). These programs are provided by a diverse community of developers and are verified prior to installation in the KF store.</p></li>
+<li><p><strong>L3AFD Role</strong>: As the main component of the L3AF control plane, L3AFD manages and orchestrates multiple eBPF programs.</p></li>
+<li><p><strong>eBPF Program Loading</strong>: The L3AFD loads these eBPF programs into the kernel using the libbpf library. The file descriptors of the programs are stored in a previous KF map, keeping track of the sequence of programs that need to run in the process. The process of creating a separate space in the eBPF Maps and storing the File descriptor into it, is carried out by using Cilium eBPF library.</p></li>
+<li><p><strong>Program Execution</strong>: Only the first eBPF program in this sequence is visible to the NIC. The rest are invoked in sequence via a bpf_tail_call, which uses the stored file descriptors in the current program’s map.</p></li>
+<li><p><strong>Packet Processing</strong>: Each packet is sequentially processed through each eBPF program and then passed on to the network stack for further processing. Similar processing occurs at the TC hook of the network stack.</p></li>
+<li><p><strong>Packet Delivery</strong>: Finally, the processed packet is sent to the destination application for any further necessary processing.</p></li>
+</ol>
+</section>
+<section id="g-upf">
+<h2>5G UPF<a class="headerlink" href="#g-upf" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="../_images/upf1.png"><img alt="Alternative text" src="../_images/upf1.png" style="width: 800px;" /></a>
+<p>The UPF(<em>User Plane Function</em>) plays a vital role in the data plane of 5G core network. Its primary responsibility is to perform packet forwarding and enforce forwarding policies for user data traffic.
+Essentially, it ensures that data packets are delivered to their desired destinations based on the network policies and QoS(<em>Quality of Service</em>) requirements defined by the service provider.</p>
+<p>One of the key functionalities of the UPF is to handle traffic management which includes packet inspection, filtering, and even DPI(<em>Deep Packet Inspection</em>). These capabilities allow the UPF to analyze the contents of data packets, making decisions based on specific criteria defined by the network policies.</p>
+<p>Moreover, the UPF serves as a critical component in enabling advanced 5G features, such as network slicing.</p>
+<a class="reference internal image-reference" href="../_images/upf2.png"><img alt="Alternative text" src="../_images/upf2.png" style="width: 800px;" /></a>
+</section>
+<section id="id1">
+<h2>L3AF Integration with 5G UPF<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<a class="reference internal image-reference" href="../_images/upf-l3af1.png"><img alt="Alternative text" src="../_images/upf-l3af1.png" style="width: 800px;" /></a>
+<ol class="arabic simple">
+<li><p><strong>Packet Arrival</strong>: Network packets first arrive at the NIC, which serves as the primary interface for incoming data from the network.</p></li>
+<li><p><strong>Processing at XDP Hook</strong>: The packets are initially processed at the XDP hook, a specific point in the Linux kernel designed for fast processing of network packets. Here, eBPF programs, managed and loaded by L3AFD, perform the first level of packet processing. These programs offer highly flexible and efficient packet filtering and manipulation capabilities.</p></li>
+<li><p><strong>Kernel Bypass via AF_XDP</strong>: After the initial processing, the packets are then sent directly to the UPF, bypassing the traditional kernel network stack. This is facilitated by the AF_XDP socket, a mechanism designed to increase performance of packet processing by avoiding overhead associated with the kernel.</p></li>
+<li><p><strong>UPF Processing</strong>: The UPF then conducts further processing on these packets. UPF is a critical part of the 5G network architecture, responsible for handling user data traffic and interconnecting the various parts of the network.</p></li>
+<li><p><strong>Packet Dispatch</strong>: After processing at the UPF, the packets are then dispatched to their respective destinations.</p></li>
+<li><p><strong>Role of L3AF</strong>: Throughout this entire process, the L3AF framework plays a critical role. It manages and orchestrates the execution of eBPF programs that govern the entire packet processing procedure. Its role in loading these programs at the XDP hook and ensuring their effective function forms the basis of this optimized processing path.</p></li>
+<li><p><strong>Network Optimization</strong>: This packet processing pathway, facilitated by L3AF and AF_XDP, results in a more efficient and high-performing network system. It minimizes latency, reduces the overhead typically associated with kernel involvement, and allows for more direct and faster processing of network packets.</p></li>
+</ol>
+<p>By leveraging these advanced technologies, we can significantly enhance network performance and the overall user experience.</p>
+<a class="reference internal image-reference" href="../_images/upf-l3af2.png"><img alt="Alternative text" src="../_images/upf-l3af2.png" style="width: 800px;" /></a>
+</section>
+<section id="about-us">
+<h2>About Us!<a class="headerlink" href="#about-us" title="Permalink to this heading"></a></h2>
+<p>NgKore is a research  &amp; academic based community dedicated to exploring innovative solutions to complex challenges in 5G/6G technology: ngKore has been tirelessly exploring innovative solutions to the complex challenges in the field of 5G Core, O-RAN, User Plane Scaling, Packet Acceleration, eBPF, and cloud technologies.</p>
+<p><strong>Written By</strong>: <a class="reference external" href="https://github.com/evershalik">Shankar</a>, Mentee &#64; <a class="reference external" href="https://wiki.lfnetworking.org/display/LN/LFN+Mentorship+Program+for+L3AF+on+Windows">LFN(L3AF on Windows)</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="L3AF" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../help.html" class="btn btn-neutral float-right" title="Help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, ngKore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
