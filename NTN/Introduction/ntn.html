@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; ngKore Documentation 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Help" href="../../help.html" />
+    <link rel="prev" title="Introduction to NTN" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ngKore Documentation
+              <img src="../../_static/ng.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">Kernel Bypass Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/index.html">5G Core Operator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../l3af/index.html">L3AF</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">NTN</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Introduction to NTN</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tyoes-of-satellites-in-ntn">Tyoes of Satellites in NTN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fundamental-terminologies-related-to-ntn">Fundamental Terminologies related to NTN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#key-differences-between-ntn-and-terrestrial-5g">Key Differences Between NTN and Terrestrial 5G</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">Help</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ngKore Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">NTN</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Introduction to NTN</a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NgKore47/docs/blob/master/docs/NTN/Introduction/ntn.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>As 5G evolves, Non-Terrestrial Networks (NTN) are emerging as a key enabler for global, seamless connectivity — especially in regions beyond the reach of ground-based infrastructure. NTN brings the sky into the 5G equation, using satellite systems and high-altitude platforms to deliver coverage where traditional cell towers can’t reach.</p>
+<p>These systems are crucial for:</p>
+<ul class="simple">
+<li><p>Connecting remote or rural areas</p></li>
+<li><p>Enabling communication in disaster zones</p></li>
+<li><p>Supporting mobile connectivity in aviation, maritime, and defense scenarios</p></li>
+</ul>
+<section id="tyoes-of-satellites-in-ntn">
+<h2>Tyoes of Satellites in NTN<a class="headerlink" href="#tyoes-of-satellites-in-ntn" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>GEO (Geostationary Earth Orbit)</strong>:~35,786 km above Earth, GEO satellites rotate in sync with the planet. They stay fixed in the sky relative to a point on Earth and offer continuous coverage to large areas — but with high latency (~500 ms round-trip).</p></li>
+<li><p><strong>MEO (Medium Earth Orbit)</strong> : Orbiting between ~8,000 km and 20,000 km, MEO satellites offer a middle ground in terms of coverage and latency. Used in systems like GPS.</p></li>
+<li><p><strong>LEO (Low Earth Orbit)</strong> : Flying at ~500–2000 km, LEO satellites provide low latency (~20–40 ms) and are ideal for real-time apps. But since they move quickly across the sky, a large constellation is needed for continuous service (e.g., Starlink, OneWeb).</p></li>
+<li><p><strong>HAPS (High-Altitude Platform Systems)</strong>: Though not satellites, HAPS operate in the stratosphere (~20 km), using balloons or drones to provide localized NTN coverage. They’re useful for disaster relief or targeted rural deployments.</p></li>
+</ol>
+<p>Unlike terrestrial networks, NTN introduces new technical challenges:</p>
+<ul class="simple">
+<li><p><strong>Long signal propagation delays</strong> (especially with distant satellites like GEO)</p></li>
+<li><p><strong>Doppler shifts</strong> from fast-moving satellites (mainly LEO)</p></li>
+<li><p><strong>Timing and synchronization</strong> issues due to variable satellite movement and distance</p></li>
+</ul>
+<a class="reference internal image-reference" href="../../_images/ntn_basic1.png"><img alt="Alternative text" src="../../_images/ntn_basic1.png" style="width: 800px;" /></a>
+</section>
+<section id="fundamental-terminologies-related-to-ntn">
+<h2>Fundamental Terminologies related to NTN<a class="headerlink" href="#fundamental-terminologies-related-to-ntn" title="Permalink to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>User Equipment (UE)</strong> : This refers to the end device — a smartphone, IoT sensor, modem, or any equipment that connects to the 5G network. In NTN, the UE must be adapted to handle higher delays, Doppler shifts, and sometimes even beam-switching events.</p></li>
+<li><p><strong>gNB (Next Generation NodeB)</strong> : The base station in 5G networks. In NTN, the gNB can be located on the ground (connected via a satellite link) or be part of a regenerative payload onboard the satellite. It handles radio access layer functions, including scheduling, HARQ management, and RLC/MAC control.</p></li>
+<li><p>There are two primary types of NTN payloads:</p></li>
+</ol>
+<ol class="loweralpha simple">
+<li><p><strong>Transparent Payload</strong> (also known as Bent-Pipe Payload or RF Repeater):These satellites work as simple relays or “bent-pipe” links. They forward RF signals to the ground without processing them. All protocol processing (decoding, scheduling, retransmissions) happens at the terrestrial gNB. Simpler and more cost-effective, these are commonly used in current LEO systems.</p></li>
+<li><p><strong>Regenerative Payload</strong> (also known as Non-Transparent Payload or Onboard Processing (OBP) Payload): Satellites equipped with onboard processing capabilities.It receives the signals, demodulates and decodes them onboard, processes the baseband data, and then re-encodes and modulates the signals before transmitting them to the users.This reduces latency, enables routing decisions in orbit, and allows for standalone operation when feeder links are unavailable.</p></li>
+</ol>
+<ol class="arabic simple" start="4">
+<li><p><strong>Feeder Link</strong> : The backhaul link between the satellite and the ground gNB or gateway. It connects the satellite network with the core network.</p></li>
+<li><p><strong>Service Link</strong> : The access link between the satellite and the UE. This is the path over which user data, signaling, and control messages are exchanged.</p></li>
+<li><p><strong>Propagation Delay</strong> : Due to the vast distances in satellite communication, signal travel time is much higher than in terrestrial networks. This delay can impact processes like HARQ, scheduling, and synchronization.</p></li>
+<li><p><strong>HARQ (Hybrid Automatic Repeat reQuest)</strong> : A protocol mechanism that enhances data reliability. If a data block has errors, the UE or gNB requests a retransmission — but only incremental bits are resent to improve efficiency.</p></li>
+</ol>
+<p>In NTN, HARQ is challenged by long delays. For instance, in GEO setups, RTT can exceed 600 ms, making it impractical to wait for ACK/NACK. This often requires tuning HARQ timers or disabling it altogether in certain links.</p>
+<ol class="arabic simple" start="8">
+<li><p><strong>Doppler Shift</strong> : The change in frequency caused by the relative motion between the satellite and the UE. In low-altitude orbits (like LEO), the rapid movement causes significant Doppler shifts that must be compensated to avoid link failure.</p></li>
+<li><p><strong>Beam Handover</strong> : In NTN, especially with LEO constellations, UEs often move from one satellite beam to another. Beam handovers maintain continuous service as satellites orbit and change position in the sky</p></li>
+<li><p><strong>Round Trip Time (RTT)</strong> : The total time a signal takes to go from UE → satellite → gNB → and back. RTT affects everything from RACH to HARQ, buffer tuning, and scheduler responsiveness.</p></li>
+<li><p><strong>cellSpecificKoffset</strong> : Helps align UE timing during Random Access (RACH) by offsetting timing in the cell-specific configuration. It compensates for large NTN delays by shifting the UE’s reception and transmission timing.It ensures that the UE and gNB stay synchronized, even with satellite-induced propagation delays.</p></li>
+<li><p><strong>Inter-Satellite Links (ISL)</strong>: Communication links directly between satellites, allowing for more flexible routing and reduced reliance on ground stations.</p></li>
+</ol>
+</section>
+<section id="key-differences-between-ntn-and-terrestrial-5g">
+<h2>Key Differences Between NTN and Terrestrial 5G<a class="headerlink" href="#key-differences-between-ntn-and-terrestrial-5g" title="Permalink to this heading"></a></h2>
+<p><strong>Propagation Delay:</strong>
+Terrestrial 5G has delays around ~1–5 ms, while NTN can experience up to 400+ ms, especially with GEO satellites.</p>
+<p><strong>Doppler Shift:</strong>
+Minimal in ground networks but significantly high in LEO-based NTN systems due to satellite movement.</p>
+<p><strong>Mobility:</strong>
+Terrestrial handovers happen between nearby cells; NTN mobility involves tracking beams or switching between satellites.</p>
+<p><strong>Infrastructure:</strong>
+5G networks rely on ground towers and fiber, while NTN uses satellites, feeder links, and gateways.</p>
+<p><strong>Stability:</strong>
+Terrestrial links are stable while NTN links may vary with atmospheric conditions and satellite dynamics.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Introduction to NTN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../help.html" class="btn btn-neutral float-right" title="Help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, ngKore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
