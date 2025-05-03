@@ -1,4 +1,4 @@
-Introduction to NTN
+Introduction
 ****************
 
 As 5G evolves, Non-Terrestrial Networks (NTN) are emerging as a key enabler for global, seamless connectivity — especially in regions beyond the reach of ground-based infrastructure. NTN brings the sky into the 5G equation, using satellite systems and high-altitude platforms to deliver coverage where traditional cell towers can’t reach.
@@ -11,7 +11,7 @@ These systems are crucial for:
 
 
 
-Satellites used in NTN 
+Tyoes of Satellites in NTN 
 =======================
 1. **GEO (Geostationary Earth Orbit)**:~35,786 km above Earth, GEO satellites rotate in sync with the planet. They stay fixed in the sky relative to a point on Earth and offer continuous coverage to large areas — but with high latency (~500 ms round-trip).
 2. **MEO (Medium Earth Orbit)** : Orbiting between ~8,000 km and 20,000 km, MEO satellites offer a middle ground in terms of coverage and latency. Used in systems like GPS.
