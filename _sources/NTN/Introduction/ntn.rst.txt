@@ -11,7 +11,7 @@ These systems are crucial for:
 
 
 
-Tyoes of Satellites in NTN 
+Types of Satellites in NTN 
 =======================
 1. **GEO (Geostationary Earth Orbit)**:~35,786 km above Earth, GEO satellites rotate in sync with the planet. They stay fixed in the sky relative to a point on Earth and offer continuous coverage to large areas — but with high latency (~500 ms round-trip).
 2. **MEO (Medium Earth Orbit)** : Orbiting between ~8,000 km and 20,000 km, MEO satellites offer a middle ground in terms of coverage and latency. Used in systems like GPS.
