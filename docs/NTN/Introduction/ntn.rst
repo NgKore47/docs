@@ -2,10 +2,13 @@ Introduction to NTN
 ****************
 
 As 5G evolves, Non-Terrestrial Networks (NTN) are emerging as a key enabler for global, seamless connectivity — especially in regions beyond the reach of ground-based infrastructure. NTN brings the sky into the 5G equation, using satellite systems and high-altitude platforms to deliver coverage where traditional cell towers can’t reach.
+
 These systems are crucial for:
-* Connecting remote or rural areas
-* Enabling communication in disaster zones
-* Supporting mobile connectivity in aviation, maritime, and defense scenarios
+
+- Connecting remote or rural areas
+- Enabling communication in disaster zones
+- Supporting mobile connectivity in aviation, maritime, and defense scenarios
+
 
 In this blog series, we’ll explore how NTN works.
 
@@ -18,32 +21,51 @@ Satellites used in NTN
 4. **HAPS (High-Altitude Platform Systems)**: Though not satellites, HAPS operate in the stratosphere (~20 km), using balloons or drones to provide localized NTN coverage. They’re useful for disaster relief or targeted rural deployments.
 
 Unlike terrestrial networks, NTN introduces new technical challenges:
-* **Long signal propagation delays** (especially with distant satellites like GEO)
-* **Doppler shifts** from fast-moving satellites (mainly LEO)
-* **Timing and synchronization** issues due to variable satellite movement and distance
+
+- **Long signal propagation delays** (especially with distant satellites like GEO)
+
+- **Doppler shifts** from fast-moving satellites (mainly LEO)
+
+- **Timing and synchronization** issues due to variable satellite movement and distance
 
 .. image:: photos/ntn_basic1.png
   :width: 800
   :alt: Alternative text
 
+
 Fundamental Terminologies in NTN
 ==================================
 
 1. **User Equipment (UE)** : This refers to the end device — a smartphone, IoT sensor, modem, or any equipment that connects to the 5G network. In NTN, the UE must be adapted to handle higher delays, Doppler shifts, and sometimes even beam-switching events.
-2. ️ **gNB (Next Generation NodeB)** : The base station in 5G networks. In NTN, the gNB can be located on the ground (connected via a satellite link) or be part of a regenerative payload onboard the satellite. It handles radio access layer functions, including scheduling, HARQ management, and RLC/MAC control.
+
+2. **gNB (Next Generation NodeB)** : The base station in 5G networks. In NTN, the gNB can be located on the ground (connected via a satellite link) or be part of a regenerative payload onboard the satellite. It handles radio access layer functions, including scheduling, HARQ management, and RLC/MAC control.
+
 3. There are two primary types of NTN payloads:
+
 a. **Transparent Payload** (also known as Bent-Pipe Payload or RF Repeater):These satellites work as simple relays or “bent-pipe” links. They forward RF signals to the ground without processing them. All protocol processing (decoding, scheduling, retransmissions) happens at the terrestrial gNB. Simpler and more cost-effective, these are commonly used in current LEO systems.
+
 b. **Regenerative Payload** (also known as Non-Transparent Payload or Onboard Processing (OBP) Payload): Satellites equipped with onboard processing capabilities.It receives the signals, demodulates and decodes them onboard, processes the baseband data, and then re-encodes and modulates the signals before transmitting them to the users.This reduces latency, enables routing decisions in orbit, and allows for standalone operation when feeder links are unavailable.
+
 4. **Feeder Link** : The backhaul link between the satellite and the ground gNB or gateway. It connects the satellite network with the core network.
+
 5. **Service Link** : The access link between the satellite and the UE. This is the path over which user data, signaling, and control messages are exchanged.
+
 6. **Propagation Delay** : Due to the vast distances in satellite communication, signal travel time is much higher than in terrestrial networks. This delay can impact processes like HARQ, scheduling, and synchronization.
+
 7. **HARQ (Hybrid Automatic Repeat reQuest)** : A protocol mechanism that enhances data reliability. If a data block has errors, the UE or gNB requests a retransmission — but only incremental bits are resent to improve efficiency.
+
 In NTN, HARQ is challenged by long delays. For instance, in GEO setups, RTT can exceed 600 ms, making it impractical to wait for ACK/NACK. This often requires tuning HARQ timers or disabling it altogether in certain links.
+
 8. **Doppler Shift** : The change in frequency caused by the relative motion between the satellite and the UE. In low-altitude orbits (like LEO), the rapid movement causes significant Doppler shifts that must be compensated to avoid link failure.
+
 9. **Beam Handover** : In NTN, especially with LEO constellations, UEs often move from one satellite beam to another. Beam handovers maintain continuous service as satellites orbit and change position in the sky
+
 10. **Round Trip Time (RTT)** : The total time a signal takes to go from UE → satellite → gNB → and back. RTT affects everything from RACH to HARQ, buffer tuning, and scheduler responsiveness.
+
 11. **cellSpecificKoffset** : Helps align UE timing during Random Access (RACH) by offsetting timing in the cell-specific configuration. It compensates for large NTN delays by shifting the UE’s reception and transmission timing.It ensures that the UE and gNB stay synchronized, even with satellite-induced propagation delays.
+
 12. **Inter-Satellite Links (ISL)**: Communication links directly between satellites, allowing for more flexible routing and reduced reliance on ground stations.
+
 
 Key Differences Between NTN and Terrestrial 5G
 ================================================
@@ -65,12 +87,5 @@ Terrestrial links are stable while NTN links may vary with atmospheric condition
 
 
 Non-Terrestrial Networks are not just the future — they’re already reshaping the way we think about coverage, mobility, and connectivity in 5G. In this blog, we explored what NTN is, the types of satellite links, key challenges, and important terminologies
-In the upcoming parts of this blog series, we’ll walk through practical implementation steps using OpenAirInterface (OAI), break down key configuration parameters, and explore how different layers of the protocol stack adapt to the NTN environment.ˀˀ
+In the upcoming parts of this blog series, we’ll walk through practical implementation steps using OpenAirInterface (OAI), break down key configuration parameters, and explore how different layers of the protocol stack adapt to the NTN environment.
 
-
-About Us!
-==================
-
-NgKore is a research  & academic based community dedicated to exploring innovative solutions to complex challenges in 5G/6G technology: ngKore has been tirelessly exploring innovative solutions to the complex challenges in the field of 5G Core, O-RAN, User Plane Scaling, Packet Acceleration, eBPF, and cloud technologies.
-
-**Written By**: `Megha <https://github.com/Meghakoranga>`
