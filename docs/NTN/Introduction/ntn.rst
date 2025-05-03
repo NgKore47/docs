@@ -31,7 +31,7 @@ Unlike terrestrial networks, NTN introduces new technical challenges:
   :alt: Alternative text
 
 
-Fundamental Terminologies in NTN
+Fundamental Terminologies related to NTN
 ==================================
 
 1. **User Equipment (UE)** : This refers to the end device — a smartphone, IoT sensor, modem, or any equipment that connects to the 5G network. In NTN, the UE must be adapted to handle higher delays, Doppler shifts, and sometimes even beam-switching events.
@@ -83,5 +83,3 @@ Terrestrial handovers happen between nearby cells; NTN mobility involves trackin
 **Stability:**
 Terrestrial links are stable while NTN links may vary with atmospheric conditions and satellite dynamics.
 
-
-Non-Terrestrial Networks are not just the future — they’re already reshaping the way we think about coverage, mobility, and connectivity in 5G. In this blog, we explored what NTN is, the types of satellite links, key challenges, and important terminologies.
