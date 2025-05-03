@@ -10,8 +10,6 @@ These systems are crucial for:
 - Supporting mobile connectivity in aviation, maritime, and defense scenarios
 
 
-In this blog series, we’ll explore how NTN works.
-
 
 Satellites used in NTN 
 =======================
@@ -86,6 +84,4 @@ Terrestrial handovers happen between nearby cells; NTN mobility involves trackin
 Terrestrial links are stable while NTN links may vary with atmospheric conditions and satellite dynamics.
 
 
-Non-Terrestrial Networks are not just the future — they’re already reshaping the way we think about coverage, mobility, and connectivity in 5G. In this blog, we explored what NTN is, the types of satellite links, key challenges, and important terminologies
-In the upcoming parts of this blog series, we’ll walk through practical implementation steps using OpenAirInterface (OAI), break down key configuration parameters, and explore how different layers of the protocol stack adapt to the NTN environment.
-
+Non-Terrestrial Networks are not just the future — they’re already reshaping the way we think about coverage, mobility, and connectivity in 5G. In this blog, we explored what NTN is, the types of satellite links, key challenges, and important terminologies.
