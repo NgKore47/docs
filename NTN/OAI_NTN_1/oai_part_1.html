@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OAI NTN Part 1: Breaking the Source Code &mdash; ngKore Documentation 0.1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Help" href="../../help.html" />
+    <link rel="prev" title="OAI NTN Part 1: Breaking the Source Code" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            ngKore Documentation
+              <img src="../../_static/ng.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../blogs/index.html">Kernel Bypass Mechanisms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../operator/index.html">5G Core Operator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../l3af/index.html">L3AF</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">NTN</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../Introduction/index.html">Introduction to NTN</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">OAI NTN Part 1: Breaking the Source Code</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">OAI NTN Part 1: Breaking the Source Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#step-by-step-breakdown-of-the-ntn-flowchart">Step-by-Step Breakdown of the NTN Flowchart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#gnb">gNB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ue">UE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-exchange-between-ue-and-gnb">Data Exchange Between UE and gNB</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../help.html">Help</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ngKore Documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">NTN</a></li>
+          <li class="breadcrumb-item"><a href="index.html">OAI NTN Part 1: Breaking the Source Code</a></li>
+      <li class="breadcrumb-item active">OAI NTN Part 1: Breaking the Source Code</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/NgKore47/docs/blob/master/docs/NTN/OAI_NTN_1/oai_part_1.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="oai-ntn-part-1-breaking-the-source-code">
+<h1>OAI NTN Part 1: Breaking the Source Code<a class="headerlink" href="#oai-ntn-part-1-breaking-the-source-code" title="Permalink to this heading"></a></h1>
+<p><strong>Author: Megha Koranga</strong></p>
+<p>Continuing our exploration of Non-Terrestrial Networks (NTN), this second part of the series delves into the technical implementation within the 5G network architecture. We will examine the code flow and the necessary extensions made to the gNB and UE software to enable communication with satellites and other non-terrestrial platforms. This will involve looking at how standard procedures are modified to account for NTN-specific characteristics.</p>
+<p>For a clearer understanding of the sequence and interaction between layers, we’ve created a simplified flowchart showing the step-by-step flow of how NTN support is integrated into the OAI stack — from gNB initialization to timing adjustments and message scheduling.</p>
+<p>For better visibility, you can access a clearer version of the flowchart using the following link:</p>
+<p>Link: <a class="reference external" href="https://app.diagrams.net/#G1pdG863MVB1PmqTQG2HVdMAC9hXP82mJm#%7B%22pageId%22%3A%22KzjFfqPiEhOPBe0r8-R2%22%7D">https://app.diagrams.net/#G1pdG863MVB1PmqTQG2HVdMAC9hXP82mJm#%7B%22pageId%22%3A%22KzjFfqPiEhOPBe0r8-R2%22%7D</a></p>
+<a class="reference internal image-reference" href="../../_images/ntn_codeflow_oai.svg"><img alt="Alternative text" src="../../_images/ntn_codeflow_oai.svg" width="1000" /></a>
+<p>Flowchart showing the step-by-step flow of how NTN support is integrated into the OAI stack — from gNB initialization to timing adjustments and message scheduling.</p>
+</section>
+<section id="step-by-step-breakdown-of-the-ntn-flowchart">
+<h1>Step-by-Step Breakdown of the NTN Flowchart<a class="headerlink" href="#step-by-step-breakdown-of-the-ntn-flowchart" title="Permalink to this heading"></a></h1>
+<section id="gnb">
+<h2>gNB<a class="headerlink" href="#gnb" title="Permalink to this heading"></a></h2>
+<p><strong>Step 1: RCconfig_nr_macrlc(cfg) – MAC &amp; RLC Layer Configuration Entry Point</strong>
+This is the first major configuration function called after the basic system initialization. It sets up the gNB’s MAC and RLC layers by reading the configuration from the config interface.</p>
+<p><strong>Step 2: nr_mac_config_scc() – Applying NTN Offsets in MAC</strong>
+This function takes the serving cell config (scc) and applies timing offset calculations that are critical for NTN.</p>
+<p>Calls <code class="docutils literal notranslate"><span class="pre">get_NTN_Koffset()</span></code> to calculate delay-based offsets:
+- GEO → 478, LEO → 40</p>
+<ul class="simple">
+<li><p>Sets scheduling delays for Msg2, Msg4, and HARQ.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">[NR_MAC]</span> <span class="pre">Candidates</span> <span class="pre">per</span> <span class="pre">PDCCH</span> <span class="pre">aggregation</span> <span class="pre">level</span> <span class="pre">on</span> <span class="pre">UESS:</span> <span class="pre">L1:</span> <span class="pre">0,</span> <span class="pre">L2:</span> <span class="pre">2,</span> <span class="pre">L4:</span> <span class="pre">0,</span> <span class="pre">L8:</span> <span class="pre">0,</span> <span class="pre">L16:</span> <span class="pre">0</span>
+<span class="pre">These</span> <span class="pre">MAC</span> <span class="pre">logs</span> <span class="pre">show</span> <span class="pre">that</span> <span class="pre">the</span> <span class="pre">MAC</span> <span class="pre">scheduler</span> <span class="pre">is</span> <span class="pre">initialized</span> <span class="pre">and</span> <span class="pre">now</span> <span class="pre">considers</span> <span class="pre">NTN-specific</span> <span class="pre">timing</span> <span class="pre">shifts.</span></code></p>
+<p><strong>Step 3: prepare_scc() – Finalizing Serving Cell Config (RRC Layer)</strong>
+It’s part of the early setup flow — and it’s crucial because this is where the gNB learns how to behave in terms of frequency, bandwidth, and timing.Constructs the <code class="docutils literal notranslate"><span class="pre">ServingCellConfigCommon</span></code> used in RRC to build SIBs (System Information Blocks). This is where the gNB gets ready to broadcast configuration to UEs.</p>
+<ul class="simple">
+<li><p>Checks <code class="docutils literal notranslate"><span class="pre">scc-&gt;ext2-&gt;ntn_Config_r17</span></code>, which signals that NTN mode is enabled.</p></li>
+<li><p>When true, it enables support for additional timing parameters and satellite-specific features.</p></li>
+<li><p>It ensures memory is allocated for extended SIBs (v1700).</p></li>
+</ul>
+<p><strong>Step 4: get_SIB1_NR() – Populating NTN-Specific Fields in SIB1</strong>
+- Check if the gNB is operating in an NTN band using <code class="docutils literal notranslate"><span class="pre">is_ntn_band(band)</span></code> band=254 and is_ntn_band() controls whether SIB1/SIB19 are filled with satellite parameters</p>
+<ul class="simple">
+<li><p>Allocate memory for extended SIB1 versions (v1610, v1630, v1700) as required by 3GPP Release 17</p></li>
+<li><p>NR_UE_Timers And Constants values are assigned(ms) t300=t301=t310=t319=2000,n310=10,n311=1,t311=3000</p></li>
+<li><p>Set the <code class="docutils literal notranslate"><span class="pre">cellBarredNTN_r17</span></code> flag to notBarred, indicating that the cell supports NTN UE.</p></li>
+</ul>
+<p>These changes ensure that all satellite-related parameters — like orbit type, timing advance support, and satellite position — are made available to the UE early in the connection process.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[NR_RRC]</span> <span class="pre">SIB1</span> <span class="pre">freq:</span> <span class="pre">offsetToPointA</span> <span class="pre">5</span>
+<span class="pre">This</span> <span class="pre">log</span> <span class="pre">confirms</span> <span class="pre">that</span> <span class="pre">the</span> <span class="pre">frequency</span> <span class="pre">domain</span> <span class="pre">resource</span> <span class="pre">parameters</span> <span class="pre">in</span> <span class="pre">SIB1</span> <span class="pre">are</span> <span class="pre">set</span> <span class="pre">-</span> <span class="pre">specifically,</span> <span class="pre">offsetToPointA,</span> <span class="pre">which</span> <span class="pre">defines</span> <span class="pre">the</span> <span class="pre">starting</span> <span class="pre">point</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">carrier</span> <span class="pre">grid.</span></code></p>
+<p><strong>Step 5: Control Returns to `RCconfig_nr_macrlc(cfg)`</strong>
+Now , all NTN-specific configuration — including SIB1/SIB19 values, timing adjustments, and band identification — has been passed from RRC to MAC.</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(IS_SA_MODE(get_softmodem_params()))</span>
+<span class="pre">Checks</span> <span class="pre">if</span> <span class="pre">the</span> <span class="pre">system</span> <span class="pre">is</span> <span class="pre">running</span> <span class="pre">in</span> <span class="pre">Standalone</span> <span class="pre">(SA)</span> <span class="pre">mode</span></code></p>
+<p>and If <code class="docutils literal notranslate"><span class="pre">ntn_Config_r17</span></code> is present:</p>
+<ul class="simple">
+<li><p>Calls <code class="docutils literal notranslate"><span class="pre">nr_mac_configure_sib19()</span></code> to schedule SIB19, which includes:</p></li>
+<li><p>Satellite position and velocity</p></li>
+<li><p>Timing advance and Doppler compensation data</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">[HW]</span> <span class="pre">No</span> <span class="pre">connected</span> <span class="pre">device,</span> <span class="pre">generating</span> <span class="pre">void</span> <span class="pre">samples...</span></code></p>
+<p><strong>Step 6: gNB_dlsch_ulsch_scheduler() – Main Downlink+Uplink Scheduling Function, called every slot.</strong>
+- SIB1 / SIB19 scheduling</p>
+<ul class="simple">
+<li><p>PRACH (Msg1) resource reservation using <code class="docutils literal notranslate"><span class="pre">NTN_Koffset</span></code>.</p></li>
+<li><p>Calls schedule_nr_sib19() to broadcast satellite parameters</p></li>
+<li><p>Ensures UE Msg1 timing aligns with the long delay of GEO/LEO satellites</p></li>
+</ul>
+<p>As <code class="docutils literal notranslate"><span class="pre">gNB_dlsch_ulsch_scheduler()</span></code> runs continuously in the slot loop, it checks if any UE has initiated random access — and then triggers the required message handling steps.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_feasible_msg3_tda()</span></code> is called-</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">[NR_MAC]</span> <span class="pre">414.4</span> <span class="pre">UE</span> <span class="pre">RA-RNTI</span> <span class="pre">003d</span> <span class="pre">TC-RNTI</span> <span class="pre">d7f9:</span> <span class="pre">Activating</span> <span class="pre">RA</span> <span class="pre">process</span> <span class="pre">index</span> <span class="pre">0</span>
+<span class="pre">[NR_MAC]</span> <span class="pre">Adding</span> <span class="pre">new</span> <span class="pre">UE</span> <span class="pre">context</span> <span class="pre">with</span> <span class="pre">RNTI</span> <span class="pre">0xd64f</span></code></p>
+<p>UE has sent a Random Access Preamble (Msg1)
+The gNB has received Msg1 and now starts the Random Access process</p>
+<p>From now on, all MAC-layer decisions (buffer handling, scheduling, etc.) are tracked for this UE This happens just before Msg2</p>
+<p><strong>Step 7: Uplink Preprocessor – nr_ulsch_preprocessor()</strong>
+After the UE context is created, the gNB calls <code class="docutils literal notranslate"><span class="pre">nr_ulsch_preprocessor()</span></code> to schedule uplink data.</p>
+<p>For NTN, the function applies an adjusted K2 value using <code class="docutils literal notranslate"><span class="pre">get_NTN_Koffset()</span></code>.GEO : <code class="docutils literal notranslate"><span class="pre">K2</span> <span class="pre">=484</span></code>, LEO : <code class="docutils literal notranslate"><span class="pre">K2</span> <span class="pre">=46</span></code></p>
+<p>k2 defines the UL scheduling delay between DCI grant and PUSCH transmission</p>
+<p><code class="docutils literal notranslate"><span class="pre">NR_MAC]</span>&#160;&#160; <span class="pre">UE</span> <span class="pre">f8de:</span> <span class="pre">Msg3</span> <span class="pre">scheduled</span> <span class="pre">(415.3</span> <span class="pre">TDA</span> <span class="pre">0)</span>
+<span class="pre">[NR_MAC]</span>&#160; <span class="pre">UE</span> <span class="pre">d7f9:</span> <span class="pre">415.3</span> <span class="pre">Generating</span> <span class="pre">RA-Msg2</span> <span class="pre">DCI</span></code></p>
+<p>At slot 415.3, the gNB schedules Msg3 for UE <code class="docutils literal notranslate"><span class="pre">f8de</span></code> while simultaneously generating Msg2 for UE <code class="docutils literal notranslate"><span class="pre">d7f9</span></code>.</p>
+<p>This overlap is possible because OAI uses the calculated K2 delay (from <code class="docutils literal notranslate"><span class="pre">get_NTN_Koffset()</span></code>) to shift Msg3 far enough into the future — ensuring that it arrives correctly even in the presence of GEO/LEO satellite delays.</p>
+<p><strong>Step 8: Msg3 Received and Msg4 Scheduling Begins</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">[NR_MAC]</span>&#160;&#160; <span class="pre">507.</span> <span class="pre">3</span> <span class="pre">PUSCH</span> <span class="pre">with</span> <span class="pre">TC_RNTI</span> <span class="pre">0xd64f</span> <span class="pre">received</span> <span class="pre">correctly</span>
+<span class="pre">[NR_MAC]</span>&#160;&#160; <span class="pre">Activating</span> <span class="pre">scheduling</span> <span class="pre">Msg4</span> <span class="pre">for</span> <span class="pre">TC_RNTI</span> <span class="pre">0xd64f</span> <span class="pre">(state</span> <span class="pre">WAIT_Msg3)</span>
+<span class="pre">[NR_RRC]</span>&#160;&#160; <span class="pre">Decoding</span> <span class="pre">CCCH:</span> <span class="pre">RNTI</span> <span class="pre">d64f,</span> <span class="pre">payload_size</span> <span class="pre">6</span></code></p>
+<p>The gNB successfully received Msg 3, confirmed by <code class="docutils literal notranslate"><span class="pre">[NR_MAC]</span> <span class="pre">PUSCH</span> <span class="pre">with</span> <span class="pre">TC_RNTI</span> <span class="pre">0xd64f</span> <span class="pre">received</span> <span class="pre">correctly.</span></code></p>
+<p>It then transitions the UE to <code class="docutils literal notranslate"><span class="pre">WAIT_Msg4</span></code> state and begins preparing Msg4.
+At the same time, <code class="docutils literal notranslate"><span class="pre">[NR_RRC]</span> <span class="pre">Decoding</span> <span class="pre">CCCH</span></code> indicates that the gNB is now reading the RRC Connection Request from the UE — the final step before establishing full RRC connection.</p>
+<p><strong>Step 9: Continuous Loop After Msg3</strong>
+Once Msg3 is received, the gNB enters a continuous loop where it calls the <code class="docutils literal notranslate"><span class="pre">gNB_dlsch_ulsch_scheduler()</span></code> function every slot. Within this loop, it keeps checking and preparing for upcoming events-Msg4 scheduling, uplink timing, and measurement reporting.</p>
+<p>This loop also repeatedly triggers functions like <code class="docutils literal notranslate"><span class="pre">nr_ulsch_preprocessor()</span></code> and <code class="docutils literal notranslate"><span class="pre">nr_csi_meas_reporting()</span></code> as part of regular slot-based processing.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[NR_RRC]</span> <span class="pre">[DL]</span> <span class="pre">Send</span> <span class="pre">RRC</span> <span class="pre">Setup</span></code></p>
+<p>This log confirms that the Msg4 content has been prepared for the UE
+It’s now ready to be delivered via PDSCH in Msg4.</p>
+<p><strong>Step 10: Msg4 Scheduling Phase</strong>
+After looping through the scheduler, the gNB eventually builds Msg4 using <code class="docutils literal notranslate"><span class="pre">nr_generate_Msg4_MsgB()</span></code> and calculates the expected ACK/NACK feedback time using <code class="docutils literal notranslate"><span class="pre">nr_acknack_scheduling()</span></code>.
+The feedback slot is again shifted using <code class="docutils literal notranslate"><span class="pre">NTN_gNB_Koffset()</span></code> to compensate for satellite delay.
+Finally, the gNB logs that Msg4 is sent and waits for the UE’s acknowledgment</p>
+<dl class="simple">
+<dt><a href="#id1"><span class="problematic" id="id2">``</span></a>[NR_MAC] UE dGenerate Msg4: feedback at  557. 2, payload 201 bytes,</dt><dd><p>next state nrRA_WAIT_Msg4_MsgB_ACK``</p>
+</dd>
+</dl>
+</section>
+<section id="ue">
+<h2>UE<a class="headerlink" href="#ue" title="Permalink to this heading"></a></h2>
+<p><strong>Step 1: apply_ntn_config() Called from UE_thread() (Repeatedly)</strong>
+Inside <code class="docutils literal notranslate"><span class="pre">UE_thread()</span></code> (in <code class="docutils literal notranslate"><span class="pre">nr-ue.c</span></code>), the function <code class="docutils literal notranslate"><span class="pre">apply_ntn_config()</span></code> is called repeatedly during the main loop.</p>
+<p>It checks and applies satellite-related timing configurations for the UE, such as orbit type and delay offsets, based on whether NTN is active.</p>
+<p>This step ensures the UE keeps adjusting itself per-slot for accurate timing under satellite conditions like GEO or LEO.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[NR_RRC]</span>&#160;&#160; <span class="pre">Found</span> <span class="pre">SIB19</span></code></p>
+<p><strong>Step 2: SIB19 Decoding and NTN Configuration Transfer</strong>
+This marks the point where the UE officially detects it’s in an NTN-enabled cell. After successfully decoding SIB19 the function <code class="docutils literal notranslate"><span class="pre">process_msg_rcc_to_mac()</span></code> is triggered to send NTN-related configuration — such as orbit type and TA adjustments — from RRC down to the MAC layer.</p>
+<p><strong>Step 3: nr_rrc_mac_config_other_sib() – Applying SIB19 and Starting RA (NTN-Specific)</strong>
+This function applies the NTN configuration received via SIB19 into the UE’s MAC layer.</p>
+<p>It updates <code class="docutils literal notranslate"><span class="pre">ntn_Config_r17</span></code>, computes timing advance using <code class="docutils literal notranslate"><span class="pre">configure_ntn_ta()</span></code>, and transitions the UE to <code class="docutils literal notranslate"><span class="pre">UE_PERFORMING_RA</span></code> — meaning it’s now ready to start Random Access using satellite-aligned timing.</p>
+<p><strong>Step 4: configure_ntn_ta() – Computing Total UE Timing Advance for NTN</strong>
+- The function <code class="docutils literal notranslate"><span class="pre">calculate_ue_sat_ta()</span></code> is called which computes the UE-to-satellite signal delay using the 3D positions of both the UE and the satellite.</p>
+<ul class="simple">
+<li><p>It returns <code class="docutils literal notranslate"><span class="pre">238.74</span> <span class="pre">ms</span></code>, which becomes part of the UE’s total timing advance.</p></li>
+<li><p>This value ensures that Msg3 is transmitted early enough to reach the gNB precisely when expected, even in high-orbit NTN conditions like GEO.</p></li>
+</ul>
+<p><strong>Step 5: schedule_ntn_config_command() – Delivering NTN Timing to PHY Layer</strong>
+- Once all NTN timing values are computed in MAC, the function <code class="docutils literal notranslate"><span class="pre">schedule_ntn_config_command()</span></code> prepares a special FAPI PDU that passes this information to the PHY layer.</p>
+<ul class="simple">
+<li><p>This ensures the physical layer can align uplink transmissions (Msg3) — with the expected satellite delay.</p></li>
+<li><p>It includes the full timing advance, TA drift, and Koffset scheduling offset, enabling slot-accurate scheduling for LEO/GEO scenarios.</p></li>
+</ul>
+<p><strong>Step 6: nr_ue_scheduled_response_dl() – Applying NTN Timing at PHY Layer and configure_ntn_params() – Final PHY Configuration</strong>
+- At the final step of NTN setup, the function <code class="docutils literal notranslate"><span class="pre">nr_ue_scheduled_response_dl()</span></code> processes the timing configuration message from MAC.</p>
+<ul class="simple">
+<li><p>When it sees <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">:FAPI_NR_DL_NTN_CONFIG_PARAMS</span></code>, it calls <code class="docutils literal notranslate"><span class="pre">configure_ntn_params()</span></code>, which loads all satellite-specific timing values into the PHY layer.</p></li>
+<li><p>These include the combined delay (<code class="docutils literal notranslate"><span class="pre">ntn_total_time_advance_ms</span></code>) and drift correction, enabling the UE to send uplink messages -Msg3 and PUCCH precisely aligned with gNB expectations.</p></li>
+</ul>
+<p><strong>Step 7(a): UE Starts 4-Step Random Access with NTN Adjustments</strong>
+<code class="docutils literal notranslate"><span class="pre">apply_ntn_config()</span></code> is called again from within the per-slot processing loop in the UE PHY.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[MAC]</span> <span class="pre">Initialization</span> <span class="pre">of</span> <span class="pre">4-Step</span> <span class="pre">CBRA</span> <span class="pre">procedure</span>
+<span class="pre">[NR_MAC]</span> <span class="pre">PRACH</span> <span class="pre">scheduler:</span> <span class="pre">Selected</span> <span class="pre">RO</span> <span class="pre">Frame</span> <span class="pre">x,</span> <span class="pre">Slot</span> <span class="pre">9,</span> <span class="pre">Symbol</span> <span class="pre">0,</span> <span class="pre">Fdm</span> <span class="pre">0</span></code></p>
+<p>After all NTN configuration is applied, the UE begins Random Access using the 4-step CBRA procedure.</p>
+<p>It selects a PRACH occasion ([NR_MAC] PRACH scheduler…) for Msg1 transmission, fully adjusted using satellite timing parameters.</p>
+<p>When preparing Msg3, the UE <code class="docutils literal notranslate"><span class="pre">usesGET_DURATION_RX_TO_TX()</span></code> to compute how many slots to wait between DL reception and UL transmission — ensuring all uplink messages align with gNB expectations</p>
+<p><strong>Step 7(b): UE Msg1 Sent → Msg2 Received and TA Applied (NTN Flow)</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">[PHY]</span> <span class="pre">PRACH</span> <span class="pre">[UE</span> <span class="pre">0]</span> <span class="pre">in</span> <span class="pre">frame.slot</span> <span class="pre">--</span> <span class="pre">placing</span> <span class="pre">PRACH</span> <span class="pre">in</span> <span class="pre">position,</span> <span class="pre">Msg1/MsgA-Preamble</span>
+<span class="pre">[PHY]</span> <span class="pre">RAR-Msg2</span> <span class="pre">decoded</span>
+<span class="pre">[NR</span> <span class="pre">MAC]</span> <span class="pre">[UE</span> <span class="pre">0]</span> <span class="pre">Found</span> <span class="pre">RAR</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">intended</span> <span class="pre">RAPID</span> <span class="pre">56</span>
+<span class="pre">[MAC]</span> <span class="pre">Received</span> <span class="pre">TA</span> <span class="pre">command</span> <span class="pre">31</span></code></p>
+<ul class="simple">
+<li><p>After transmitting Msg1, the UE enters its per-slot loop again (apply_ntn_config())and receives Msg2, confirmed by <code class="docutils literal notranslate"><span class="pre">[PHY]</span> <span class="pre">RAR-Msg2</span> <span class="pre">decoded</span></code> and <code class="docutils literal notranslate"><span class="pre">[NR</span> <span class="pre">MAC]</span> <span class="pre">Found</span> <span class="pre">RAR</span> <span class="pre">with</span> <span class="pre">RAPID</span> <span class="pre">56.</span></code></p></li>
+<li><p>The UE calculates the timing for Msg3 using <code class="docutils literal notranslate"><span class="pre">GET_DURATION_RX_TO_TX()</span></code> and applies the TA command received in Msg2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply_ntn_config()</span></code> is invoked repeatedly to keep the PHY layer updated with the latest satellite delay and drift, especially important in fast-moving LEO orbits.</p></li>
+</ul>
+<p><strong>Step 7(c): Msg3 Transmission — NTN Timing Fully Applied</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">Log:</span> <span class="pre">[NR</span> <span class="pre">MAC]</span> <span class="pre">[RAPROC]</span> <span class="pre">[163.3]</span> <span class="pre">RA-Msg3</span> <span class="pre">transmitted</span></code></p>
+<ul class="simple">
+<li><p>At slot 163.3, the UE successfully transmits Msg3, as confirmed by the <code class="docutils literal notranslate"><span class="pre">[RAPROC]</span> <span class="pre">RA-Msg3</span> <span class="pre">transmitted</span></code> log.</p></li>
+<li><p>Then function <code class="docutils literal notranslate"><span class="pre">nr_Msg3_transmitted()</span></code> is called to finalize the transmission, recording the total satellite-based delay (<code class="docutils literal notranslate"><span class="pre">ta_common_ms</span></code>) — 477.48 ms for GEO, and 37.66 ms for LEO.</p></li>
+<li><p>The timing was calculated using the combined result of SIB19, satellite ephemeris, and the Msg2 TA command.</p></li>
+<li><p>With Msg3 sent, the UE continues calling <code class="docutils literal notranslate"><span class="pre">apply_ntn_config()</span></code> to stay aligned for Msg4 and ACK/NACK scheduling.</p></li>
+</ul>
+<p><strong>Step 7(d):  Final Step: Msg4 Acknowledged — RA Procedure Successful</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">On</span> <span class="pre">GNB</span>
+<span class="pre">[NR_MAC]</span>&#160; <span class="pre">UE</span> <span class="pre">:</span> <span class="pre">Received</span> <span class="pre">Ack</span> <span class="pre">of</span> <span class="pre">Msg4.</span> <span class="pre">CBRA</span> <span class="pre">procedure</span> <span class="pre">succeeded!</span>
+<span class="pre">On</span> <span class="pre">UE</span>
+<span class="pre">4-Step</span> <span class="pre">RA</span> <span class="pre">procedure</span> <span class="pre">succeeded.</span> <span class="pre">CBRA:</span> <span class="pre">Contention</span> <span class="pre">Resolution</span> <span class="pre">is</span> <span class="pre">successful.</span></code></p>
+<ul class="simple">
+<li><p>Once Msg3 is transmitted and Msg4 is received, the UE sends an ACK using PUCCH.</p></li>
+<li><p>The gNB receives this ACK at some slot and confirms the completion of the contention-based RA procedure.</p></li>
+<li><p>The UE logs that contention resolution succeeded — meaning no collisions occurred — and the UE now transitions to the next stage of connection setup.</p></li>
+</ul>
+<p>This moment marks the <strong>successful hand-in-hand synchronization between UE and gNB over satellite</strong>, despite large and asymmetric delays.</p>
+<p><strong>Step 8 : Post-RA: UE Begins RRC Setup Completion</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">[NR_RRC]</span> <span class="pre">[UE</span> <span class="pre">0]</span> <span class="pre">[RAPROC]</span> <span class="pre">Logical</span> <span class="pre">Channel</span> <span class="pre">UL-DCCH</span> <span class="pre">(SRB1),</span> <span class="pre">Generating</span> <span class="pre">RRCSetupComplete</span> <span class="pre">(bytes32)</span></code></p>
+<ul class="simple">
+<li><p>After the 4-step Random Access procedure finishes, the UE sends the <cite>RRCSetupComplete</cite> message over the UL-DCCH channel using SRB1.</p></li>
+<li><p>This message confirms the establishment of the RRC connection with the gNB and finalizes the UE’s admission into the network.</p></li>
+<li><p>While this is happening, <code class="docutils literal notranslate"><span class="pre">apply_ntn_config()</span></code> continues looping each slot to maintain NTN timing precision — ensuring uplink and downlink remain correctly aligned over the satellite link.</p></li>
+</ul>
+</section>
+</section>
+<section id="data-exchange-between-ue-and-gnb">
+<h1>Data Exchange Between UE and gNB<a class="headerlink" href="#data-exchange-between-ue-and-gnb" title="Permalink to this heading"></a></h1>
+<a class="reference internal image-reference" href="../../_images/gnb_GEO.png"><img alt="Alternative text" src="../../_images/gnb_GEO.png" style="width: 800px;" /></a>
+<p>gNB(for GEO)</p>
+<p>gNB log output shows successful Msg4 acknowledgment, RRC connection establishment, and early uplink/downlink activity.</p>
+<p>The logs confirm the UE is in-sync and actively exchanging MAC-layer messages with the gNB, with all NTN timing offsets correctly applied.</p>
+<a class="reference internal image-reference" href="../../_images/UE_GEO.png"><img alt="Alternative text" src="../../_images/UE_GEO.png" style="width: 800px;" /></a>
+<p>UE(for GEO)</p>
+<p>This concludes Part II of the NTN blog series, where we examined the overall code flow enabling Non-Terrestrial Network (NTN) support in OpenAirInterface.
+Through both gNB and UE perspectives, we walked through key components such as SIB19 processing, NTN-specific timing advance computation, and synchronization across the 4-step Random Access Procedure.</p>
+<p>The included flowchart offers a consolidated view of this interaction, highlighting the key function calls and log traces involved in establishing NTN-aware connectivity.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="OAI NTN Part 1: Breaking the Source Code" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../help.html" class="btn btn-neutral float-right" title="Help" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, ngKore.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
